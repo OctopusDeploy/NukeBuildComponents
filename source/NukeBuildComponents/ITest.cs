@@ -4,7 +4,7 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
 namespace Octopus.NukeBuildComponents
 {
-    public interface ITest: IOctopusNukeBuild
+    public interface ITest : IOctopusNukeBuild
     {
         Target Test => _ => _
             .TryDependsOn<ICompile>(x => x.Compile)

@@ -4,7 +4,7 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
 namespace Octopus.NukeBuildComponents
 {
-    public interface IRestore: IOctopusNukeBuild
+    public interface IRestore : IOctopusNukeBuild
     {
         Target Restore => _ => _
             .TryDependsOn<IClean>(x => x.Clean)

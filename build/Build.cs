@@ -24,7 +24,7 @@ class Build : NukeBuild, IComponentBuild
 {
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
     public Enumeration Config => IsLocalBuild ? Configuration.Debug : Configuration.Release;
-    
+
     /// Support plugins are available for:
     /// - JetBrains ReSharper        https://nuke.build/resharper
     /// - JetBrains Rider            https://nuke.build/rider

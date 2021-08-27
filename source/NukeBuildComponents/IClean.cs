@@ -5,7 +5,7 @@ using static Nuke.Common.IO.FileSystemTasks;
 
 namespace Octopus.NukeBuildComponents
 {
-    public interface IClean: IOctopusNukeBuild
+    public interface IClean : IOctopusNukeBuild
     {
         Target Clean => _ => _
             .TryBefore<IRestore>(x => x.Restore)

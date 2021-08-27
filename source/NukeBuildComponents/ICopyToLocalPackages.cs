@@ -20,6 +20,5 @@ namespace Octopus.NukeBuildComponents
                         CopyFileToDirectory(package, LocalPackagesDir, FileExistsPolicy.Overwrite);
                     });
             });
-
     }
 }
