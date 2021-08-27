@@ -46,7 +46,7 @@ namespace Octopus.NukeBuildComponents
                 if (gitStatus.Count == 0)
                 {
                     var remote = GitTasks.Git($"ls-remote origin {prettyBotBranch}");
-                    if (remote.Count == 0) GitTasks.Git($"push origin :{prettyBotBranch}");
+                    if (remote.Count > 0) GitTasks.Git($"push origin :{prettyBotBranch}");
 
                     return;
                 }
