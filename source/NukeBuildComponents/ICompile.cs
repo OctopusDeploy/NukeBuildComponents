@@ -16,7 +16,7 @@ namespace Octopus.NukeBuildComponents
 
                 DotNetBuild(_ => _
                     .SetProjectFile(Solution)
-                    .SetConfiguration(Configuration)
+                    .SetConfiguration(Config)
                     .SetVersion(OctoVersionInfo.FullSemVer)
                     .EnableNoRestore());
                 

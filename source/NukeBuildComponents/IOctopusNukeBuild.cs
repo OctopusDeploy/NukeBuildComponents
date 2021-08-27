@@ -9,7 +9,7 @@ namespace Octopus.NukeBuildComponents
 {
     public interface IOctopusNukeBuild : INukeBuild
     {
-        Enumeration Configuration { get; }
+        Enumeration Config { get; }
 
         [Solution]
         Solution Solution => ValueInjectionUtility.TryGetValue(() => Solution);

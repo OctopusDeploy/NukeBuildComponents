@@ -12,7 +12,7 @@ namespace Octopus.NukeBuildComponents
             {
                 DotNetTest(_ => _
                     .SetProjectFile(Solution)
-                    .SetConfiguration(Configuration)
+                    .SetConfiguration(Config)
                     .SetNoBuild(true)
                     .EnableNoRestore()
                     .SetFilter(@"FullyQualifiedName\!~Integration.Tests"));

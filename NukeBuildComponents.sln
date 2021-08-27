@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NukeBuildComponents", "source\NukeBuildComponents\NukeBuildComponents.csproj", "{69535CCB-57B6-4C52-BBCC-2F716FD0C3EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_build", "build\_build.csproj", "{C3F145FF-CFF0-48CE-BFCD-D238B62B3772}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,7 @@ Global
 		{69535CCB-57B6-4C52-BBCC-2F716FD0C3EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69535CCB-57B6-4C52-BBCC-2F716FD0C3EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69535CCB-57B6-4C52-BBCC-2F716FD0C3EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3F145FF-CFF0-48CE-BFCD-D238B62B3772}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3F145FF-CFF0-48CE-BFCD-D238B62B3772}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 EndGlobal

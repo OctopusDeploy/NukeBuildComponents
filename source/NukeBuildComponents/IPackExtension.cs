@@ -22,7 +22,7 @@ namespace Octopus.NukeBuildComponents
                 DotNetPack(_ => _
                     .SetProject(Solution)
                     .SetVersion(OctoVersionInfo.FullSemVer)
-                    .SetConfiguration(Configuration)
+                    .SetConfiguration(Config)
                     .SetOutputDirectory(ArtifactsDirectory)
                     .EnableNoBuild()
                     .DisableIncludeSymbols()
@@ -33,7 +33,7 @@ namespace Octopus.NukeBuildComponents
                 DotNetPack(_ => _
                     .SetProject(RootDirectory / "source/Client/Client.csproj")
                     .SetVersion(OctoVersionInfo.FullSemVer)
-                    .SetConfiguration(Configuration)
+                    .SetConfiguration(Config)
                     .SetOutputDirectory(ArtifactsDirectory)
                     .EnableNoBuild()
                     .DisableIncludeSymbols()
