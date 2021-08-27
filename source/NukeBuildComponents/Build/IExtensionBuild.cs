@@ -1,6 +1,6 @@
 using Nuke.Common;
 
-namespace Octopus.NukeBuildComponents
+namespace Octopus.NukeBuildComponents.Build
 {
     public interface IExtensionBuild :
         IRestore,
