@@ -19,7 +19,6 @@ namespace Octopus.NukeBuildComponents
                     .SetConfiguration(Config)
                     .SetVersion(OctoVersionInfo.FullSemVer)
                     .EnableNoRestore());
-                
             });
     }
 }

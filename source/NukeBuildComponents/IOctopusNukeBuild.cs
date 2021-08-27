@@ -11,11 +11,9 @@ namespace Octopus.NukeBuildComponents
     {
         Enumeration Config { get; }
 
-        [Solution]
-        Solution Solution => ValueInjectionUtility.TryGetValue(() => Solution);
+        [Solution] Solution Solution => ValueInjectionUtility.TryGetValue(() => Solution);
 
-        [OctoVersion]
-        OctoVersionInfo OctoVersionInfo => ValueInjectionUtility.TryGetValue(() => OctoVersionInfo);
+        [OctoVersion] OctoVersionInfo OctoVersionInfo => ValueInjectionUtility.TryGetValue(() => OctoVersionInfo);
 
         AbsolutePath SourceDirectory => RootDirectory / "source";
         public AbsolutePath ArtifactsDirectory => RootDirectory / "artifacts";
