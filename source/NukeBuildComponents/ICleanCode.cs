@@ -1,3 +1,4 @@
+using System;
 using Nuke.Common;
 using Nuke.Common.Git;
 using Nuke.Common.Tools.Git;
@@ -7,8 +8,9 @@ namespace Octopus.NukeBuildComponents
 {
     public interface ICleanCode : IOctopusNukeBuild
     {
+        bool ShouldCleanCode => (Environment.GetEnvironmentVariable("SHOULD_CLEAN_CODE") ?? "true").Equals("true");
         Target CleanCode => _ => _
-            .OnlyWhenStatic(() => !IsLocalBuild)
+            .OnlyWhenStatic(() => !IsLocalBuild && ShouldCleanCode)
             .TryTriggeredBy<IPackComponent>(x => x.Pack)
             .TryTriggeredBy<IPackExtension>(x => x.Pack)
             .Executes(() =>

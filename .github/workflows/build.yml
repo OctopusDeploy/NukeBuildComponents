@@ -33,6 +33,7 @@ jobs:
         env:
           OCTOVERSION_CurrentBranch: ${{ github.head_ref || github.ref }} # For pull_request events we override the /refs/pull/xx/merge branch to the PR's head branch
           OCTOVERSION_Patch: ${{ github.run_number }}
+          SHOULD_CLEAN_CODE: ${{ github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]' && github.event_name != 'schedule' && steps.build.outputs.prerelease_tag == '' }}
         shell: bash
         run: ./build.sh --verbosity verbose
 
