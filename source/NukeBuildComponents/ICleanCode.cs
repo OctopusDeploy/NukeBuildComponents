@@ -9,6 +9,7 @@ namespace Octopus.NukeBuildComponents
     public interface ICleanCode : IOctopusNukeBuild
     {
         bool ShouldCleanCode => (Environment.GetEnvironmentVariable("SHOULD_CLEAN_CODE") ?? "true").Equals("true");
+
         Target CleanCode => _ => _
             .OnlyWhenStatic(() => !IsLocalBuild && ShouldCleanCode)
             .TryTriggeredBy<IPackComponent>(x => x.Pack)
