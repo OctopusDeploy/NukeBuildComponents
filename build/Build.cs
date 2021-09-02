@@ -22,6 +22,8 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 [ShutdownDotNetAfterServerBuild]
 class Build : NukeBuild, IComponentBuild
 {
+    public string TargetPackageDescription => "Octopus Nuke Components";
+
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
     public Enumeration Config => IsLocalBuild ? Configuration.Debug : Configuration.Release;
 

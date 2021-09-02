@@ -12,7 +12,7 @@ namespace Octopus.NukeBuildComponents
             .TryDependsOn<IRestore>(x => x.Restore)
             .Executes(() =>
             {
-                Logger.Info("Building AzureDevOps issue tracker v{0}", OctoVersionInfo.FullSemVer);
+                Logger.Info("Building {1} v{0}", OctoVersionInfo.FullSemVer, TargetPackageDescription);
 
                 DotNetBuild(_ => _
                     .SetProjectFile(Solution)
