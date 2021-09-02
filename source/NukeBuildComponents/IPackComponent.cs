@@ -12,7 +12,7 @@ namespace Octopus.NukeBuildComponents
             .Produces(ArtifactsDirectory / "*.nupkg")
             .Executes(() =>
             {
-                Logger.Info("Packing AzureDevOps issue tracker v{0}", OctoVersionInfo.FullSemVer);
+                Logger.Info("Packing {1} v{0}", OctoVersionInfo.FullSemVer, TargetPackageDescription);
 
                 // This is done to pass the data to github actions
                 Console.Out.WriteLine($"::set-output name=semver::{OctoVersionInfo.FullSemVer}");
