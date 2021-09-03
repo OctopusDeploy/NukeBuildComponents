@@ -101,6 +101,10 @@
             ]
           }
         },
+        "TestFilter": {
+          "type": "string",
+          "description": "Filter expression to run selective tests. Default is 'FullyQualifiedName!~Integration.Tests'"
+        },
         "Verbosity": {
           "type": "string",
           "description": "Logging verbosity during build execution. Default is 'Normal'",
