@@ -35,7 +35,7 @@ namespace Octopus.NukeBuildComponents
                 try
                 {
                     GitTasks.Git($"show-ref --verify --quiet refs/heads/{prettyBotBranch}");
-                    GitTasks.Git($"checkout -D {prettyBotBranch}");
+                    GitTasks.Git($"checkout --detach {prettyBotBranch}");
                 }
                 catch
                 {
