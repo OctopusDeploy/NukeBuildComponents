@@ -7,8 +7,9 @@ namespace Octopus.NukeBuildComponents
 {
     public interface ITest : IOctopusNukeBuild
     {
-        [Parameter("Filter expression to run selective tests. Default is 'FullyQualifiedName!~Integration.Tests'")] 
-        string TestFilter => ValueInjectionUtility.TryGetValue(() => TestFilter) ?? "FullyQualifiedName!~Integration.Tests";
+        [Parameter("Filter expression to run selective tests. Default is 'FullyQualifiedName!~Integration.Tests'")]
+        string TestFilter => ValueInjectionUtility.TryGetValue(() => TestFilter) ??
+                             "FullyQualifiedName!~Integration.Tests";
 
         Target Test => _ => _
             .TryDependsOn<ICompile>(x => x.Compile)
