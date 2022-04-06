@@ -3,7 +3,6 @@ using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tooling;
 using Nuke.Common.Tools.OctoVersion;
-using Nuke.Common.ValueInjection;
 
 namespace Octopus.NukeBuildComponents
 {
@@ -13,9 +12,9 @@ namespace Octopus.NukeBuildComponents
 
         Enumeration Config { get; }
 
-        [Solution] Solution Solution => ValueInjectionUtility.TryGetValue(() => Solution);
+        [Solution] Solution? Solution => TryGetValue(() => Solution);
 
-        [OctoVersion] OctoVersionInfo OctoVersionInfo => ValueInjectionUtility.TryGetValue(() => OctoVersionInfo);
+        [OctoVersion] OctoVersionInfo? OctoVersionInfo => TryGetValue(() => OctoVersionInfo);
 
         AbsolutePath SourceDirectory => RootDirectory / "source";
         public AbsolutePath ArtifactsDirectory => RootDirectory / "artifacts";

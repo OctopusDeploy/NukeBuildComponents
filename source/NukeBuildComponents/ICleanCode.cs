@@ -16,7 +16,7 @@ namespace Octopus.NukeBuildComponents
             .Executes(() =>
             {
                 ReSharperTasks.ReSharperCleanupCode(new ReSharperCleanupCodeSettings()
-                    .SetTargetPath(Solution.Path));
+                    .SetTargetPath(Solution?.Path));
 
                 var currentBranch = GitRepository.FromLocalDirectory("./").Branch;
                 if (currentBranch == null || currentBranch.StartsWith("prettybot/")) return;
@@ -24,7 +24,7 @@ namespace Octopus.NukeBuildComponents
 
                 if (prettyBotBranch is "main" or "master")
                 {
-                    Logger.Info("Doing anything automated to the default branch is not recommended. Exiting.");
+                    Serilog.Log.Information("Doing anything automated to the default branch is not recommended. Exiting.");
                     return;
                 }
 
