@@ -8,7 +8,6 @@ using Nuke.Common.ProjectModel;
 using Nuke.Common.Tooling;
 using Nuke.Common.Tools.OctoVersion;
 using Nuke.Common.Utilities;
-using Nuke.Common.ValueInjection;
 
 namespace Octopus.NukeBuildComponents
 {
