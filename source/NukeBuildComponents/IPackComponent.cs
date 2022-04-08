@@ -19,7 +19,7 @@ namespace Octopus.NukeBuildComponents
                 Console.Out.WriteLine($"::set-output name=semver::{OctoVersionInfo.FullSemVer}");
                 Console.Out.WriteLine($"::set-output name=prerelease_tag::{OctoVersionInfo.PreReleaseTagWithDash}");
 
-                DotNetPack(c => c
+                DotNetPack(_ => _
                     .SetProject(Solution)
                     .SetVersion(OctoVersionInfo.FullSemVer)
                     .SetConfiguration(Config)
