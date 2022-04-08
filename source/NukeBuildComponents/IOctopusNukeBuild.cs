@@ -39,7 +39,7 @@ namespace Octopus.NukeBuildComponents
         public AbsolutePath PublishDirectory => RootDirectory / "publish";
         public AbsolutePath LocalPackagesDir => RootDirectory / ".." / "LocalPackages";
 
-        private static readonly Dictionary<MemberInfo, object> s_valueCache = new Dictionary<MemberInfo, object>();
+        private static readonly Dictionary<MemberInfo, object> SValueCache = new Dictionary<MemberInfo, object>();
 
         // we need this custom method instead of the "normal" TryGetValue,
         // as we need to pass `instance: this` down
@@ -53,7 +53,7 @@ namespace Octopus.NukeBuildComponents
                 return (OctoVersionInfo) attribute!.TryGetValue(parameter, instance: this)!;
             }
 
-            return (OctoVersionInfo) (s_valueCache[parameter] = s_valueCache.GetValueOrDefault(parameter) ?? GetValue());
+            return (OctoVersionInfo) (SValueCache[parameter] = SValueCache.GetValueOrDefault(parameter) ?? GetValue());
         }
     }
 }
