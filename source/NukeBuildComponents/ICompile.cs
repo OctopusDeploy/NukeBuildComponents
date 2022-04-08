@@ -13,12 +13,12 @@ namespace Octopus.NukeBuildComponents
             .TryDependsOn<IRestore>(x => x.Restore)
             .Executes(() =>
             {
-                Log.Information("Building {1} v{0}", OctoVersionInfo?.FullSemVer, TargetPackageDescription);
+                Log.Information("Building {1} v{0}", OctoVersionInfo.FullSemVer, TargetPackageDescription);
 
                 DotNetBuild(_ => _
                     .SetProjectFile(Solution)
                     .SetConfiguration(Config)
-                    .SetVersion(OctoVersionInfo?.FullSemVer)
+                    .SetVersion(OctoVersionInfo.FullSemVer)
                     .EnableNoRestore());
             });
     }

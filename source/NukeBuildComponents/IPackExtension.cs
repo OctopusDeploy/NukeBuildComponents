@@ -15,32 +15,32 @@ namespace Octopus.NukeBuildComponents
             .Produces(ArtifactsDirectory / "*.nupkg")
             .Executes(() =>
             {
-                Log.Information("Packing {1} v{0}", OctoVersionInfo?.FullSemVer, TargetPackageDescription);
+                Log.Information("Packing {1} v{0}", OctoVersionInfo.FullSemVer, TargetPackageDescription);
 
                 // This is done to pass the data to github actions
-                Console.Out.WriteLine($"::set-output name=semver::{OctoVersionInfo?.FullSemVer}");
-                Console.Out.WriteLine($"::set-output name=prerelease_tag::{OctoVersionInfo?.PreReleaseTagWithDash}");
+                Console.Out.WriteLine($"::set-output name=semver::{OctoVersionInfo.FullSemVer}");
+                Console.Out.WriteLine($"::set-output name=prerelease_tag::{OctoVersionInfo.PreReleaseTagWithDash}");
 
                 DotNetPack(c => c
                     .SetProject(Solution)
-                    .SetVersion(OctoVersionInfo?.FullSemVer)
+                    .SetVersion(OctoVersionInfo.FullSemVer)
                     .SetConfiguration(Config)
                     .SetOutputDirectory(ArtifactsDirectory)
                     .EnableNoBuild()
                     .DisableIncludeSymbols()
                     .SetVerbosity(DotNetVerbosity.Normal)
                     .SetProperty("NuspecFile", NuspecFilePath)
-                    .SetProperty("NuspecProperties", $"Version={OctoVersionInfo?.FullSemVer}"));
+                    .SetProperty("NuspecProperties", $"Version={OctoVersionInfo.FullSemVer}"));
 
                 DotNetPack(c => c
                     .SetProject(RootDirectory / "source/Client/Client.csproj")
-                    .SetVersion(OctoVersionInfo?.FullSemVer)
+                    .SetVersion(OctoVersionInfo.FullSemVer)
                     .SetConfiguration(Config)
                     .SetOutputDirectory(ArtifactsDirectory)
                     .EnableNoBuild()
                     .DisableIncludeSymbols()
                     .SetVerbosity(DotNetVerbosity.Normal)
-                    .SetProperty("NuspecProperties", $"Version={OctoVersionInfo?.FullSemVer}"));
+                    .SetProperty("NuspecProperties", $"Version={OctoVersionInfo.FullSemVer}"));
             });
     }
 }
