@@ -18,7 +18,7 @@ namespace Octopus.NukeBuildComponents
             .Executes(() =>
             {
                 ReSharperTasks.ReSharperCleanupCode(new ReSharperCleanupCodeSettings()
-                    .SetTargetPath(Solution?.Path));
+                    .SetTargetPath(Solution.Path));
 
                 var currentBranch = GitRepository.FromLocalDirectory("./").Branch;
                 if (currentBranch == null || currentBranch.StartsWith("prettybot/")) return;
