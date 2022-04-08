@@ -13,7 +13,7 @@ namespace Octopus.NukeBuildComponents
             .Executes(() =>
             {
                 var artifactPaths = ArtifactsDirectory.GlobFiles("*.nupkg")
-                    .NotEmpty()
+                    .Where(p => p is not null)
                     .Select(p => p.ToString());
 
                 Console.WriteLine($"::set-output name=packages_to_push::{string.Join(',', artifactPaths)}");

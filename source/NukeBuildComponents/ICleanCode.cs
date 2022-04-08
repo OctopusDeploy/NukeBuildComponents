@@ -3,12 +3,14 @@ using Nuke.Common;
 using Nuke.Common.Git;
 using Nuke.Common.Tools.Git;
 using Nuke.Common.Tools.ReSharper;
+using Serilog;
 
 namespace Octopus.NukeBuildComponents
 {
     public interface ICleanCode : IOctopusNukeBuild
     {
         bool ShouldCleanCode => (Environment.GetEnvironmentVariable("SHOULD_CLEAN_CODE") ?? "true").Equals("true");
+
         Target CleanCode => _ => _
             .OnlyWhenStatic(() => !IsLocalBuild && ShouldCleanCode)
             .TryTriggeredBy<IPackComponent>(x => x.Pack)
@@ -24,7 +26,7 @@ namespace Octopus.NukeBuildComponents
 
                 if (prettyBotBranch is "main" or "master")
                 {
-                    Logger.Info("Doing anything automated to the default branch is not recommended. Exiting.");
+                    Log.Information("Doing anything automated to the default branch is not recommended. Exiting.");
                     return;
                 }
 

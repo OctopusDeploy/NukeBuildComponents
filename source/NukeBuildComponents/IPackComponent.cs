@@ -1,6 +1,7 @@
 using System;
 using Nuke.Common;
 using Nuke.Common.Tools.DotNet;
+using Serilog;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
 namespace Octopus.NukeBuildComponents
@@ -12,7 +13,7 @@ namespace Octopus.NukeBuildComponents
             .Produces(ArtifactsDirectory / "*.nupkg")
             .Executes(() =>
             {
-                Logger.Info("Packing {1} v{0}", OctoVersionInfo.FullSemVer, TargetPackageDescription);
+                Log.Information("Packing {1} v{0}", OctoVersionInfo.FullSemVer, TargetPackageDescription);
 
                 // This is done to pass the data to github actions
                 Console.Out.WriteLine($"::set-output name=semver::{OctoVersionInfo.FullSemVer}");
