@@ -17,11 +17,11 @@ namespace Octopus.NukeBuildComponents
 
         Enumeration Config { get; }
 
-        [Solution] Solution? Solution => TryGetValue(() => Solution);
+        [Solution] Solution Solution => TryGetValue(() => Solution)!;
 
         [Parameter("Branch name for OctoVersion to use to calculate the version number."
             , Name = "OCTOVERSION_CurrentBranch")]
-        string BranchName => TryGetValue(() => BranchName);
+        string BranchName => TryGetValue(() => BranchName)!;
 
         [Parameter("Whether to auto-detect the branch name - this is okay for a local " +
                    "build, but should not be used under CI.")]
