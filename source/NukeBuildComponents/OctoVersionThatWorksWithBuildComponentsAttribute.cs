@@ -17,12 +17,25 @@ using Nuke.Common.ValueInjection;
 namespace Octopus.NukeBuildComponents;
 
 /// <summary>
-/// Injects an instance of <see cref="OctoVersion"/> based on the local repository.
+///     Injects an instance of <see cref="OctoVersion" /> based on the local repository.
 /// </summary>
 /// <remarks>
-/// This implementation is necessary, because over <see href="https://github.com/nuke-build/nuke/blob/develop/source/Nuke.Common/ValueInjection/ValueInjectionUtility.cs#L40">here</see>, nuke passess null in
-/// which goes :boom: over <see href="https://github.com/nuke-build/nuke/blob/develop/source/Nuke.Common/Tools/OctoVersion/OctoVersionAttribute.cs#L127">here</see>, because we're not expecting it to be null
-/// <see href="https://github.com/nuke-build/nuke/blob/develop/source/Nuke.Common/ValueInjection/ValueInjectionAttributeBase.cs#L33">here</see>
+///     This implementation is necessary, because over
+///     <see
+///         href="https://github.com/nuke-build/nuke/blob/develop/source/Nuke.Common/ValueInjection/ValueInjectionUtility.cs#L40">
+///         here
+///     </see>
+///     , nuke passess null in
+///     which goes :boom: over
+///     <see
+///         href="https://github.com/nuke-build/nuke/blob/develop/source/Nuke.Common/Tools/OctoVersion/OctoVersionAttribute.cs#L127">
+///         here
+///     </see>
+///     , because we're not expecting it to be null
+///     <see
+///         href="https://github.com/nuke-build/nuke/blob/develop/source/Nuke.Common/ValueInjection/ValueInjectionAttributeBase.cs#L33">
+///         here
+///     </see>
 /// </remarks>
 [PublicAPI]
 [UsedImplicitly(ImplicitUseKindFlags.Default)]
@@ -34,18 +47,18 @@ public class OctoVersionThatWorksWithBuildComponentsAttribute : ValueInjectionAt
     private int? _patch;
 
     /// <summary>
-    /// Framework to use when selecting the OctoVersion library from the package.
+    ///     Framework to use when selecting the OctoVersion library from the package.
     /// </summary>
     public string Framework { get; set; } = "net5.0";
 
     /// <summary>
-    /// Whether to update the build number and output OctoVersion results into the CI platform.
-    /// Supports AzurePipelines, TeamCity, AppVeyor, and GitHubActions.
+    ///     Whether to update the build number and output OctoVersion results into the CI platform.
+    ///     Supports AzurePipelines, TeamCity, AppVeyor, and GitHubActions.
     /// </summary>
     public bool UpdateBuildNumber { get; set; } = true;
 
     /// <summary>
-    /// Automatically detect the branch to explicitly pass to OctoVersion, based on the Git working copy.
+    ///     Automatically detect the branch to explicitly pass to OctoVersion, based on the Git working copy.
     /// </summary>
     public bool AutoDetectBranch
     {
@@ -54,35 +67,41 @@ public class OctoVersionThatWorksWithBuildComponentsAttribute : ValueInjectionAt
     }
 
     /// <summary>
-    /// Name of the parameter specifying whether to auto detect the branch to explicitly pass to OctoVersion, based on the Git working copy.
-    /// If this parameter is provided, it will override any value passed in the AutoDetectBranch property.
+    ///     Name of the parameter specifying whether to auto detect the branch to explicitly pass to OctoVersion, based on the
+    ///     Git working copy.
+    ///     If this parameter is provided, it will override any value passed in the AutoDetectBranch property.
     /// </summary>
-    [CanBeNull] public string AutoDetectBranchParameter { get; set; }
+    [CanBeNull]
+    public string AutoDetectBranchParameter { get; set; }
 
     /// <summary>
-    /// branch to pass to OctoVersion.
+    ///     branch to pass to OctoVersion.
     /// </summary>
-    [CanBeNull] public string Branch { get; set; }
+    [CanBeNull]
+    public string Branch { get; set; }
 
     /// <summary>
-    /// Name of the parameter containing the branch to be passed to OctoVersion.
-    /// If this parameter is provided, it will override any value passed in the Branch property.
+    ///     Name of the parameter containing the branch to be passed to OctoVersion.
+    ///     If this parameter is provided, it will override any value passed in the Branch property.
     /// </summary>
-    [CanBeNull] public string BranchParameter { get; set; }
+    [CanBeNull]
+    public string BranchParameter { get; set; }
 
     /// <summary>
-    /// FullSemVer to pass to OctoVersion.
+    ///     FullSemVer to pass to OctoVersion.
     /// </summary>
-    [CanBeNull] public string FullSemVer { get; set; }
+    [CanBeNull]
+    public string FullSemVer { get; set; }
 
     /// <summary>
-    /// Name of the parameter containing the FullSemVer to be passed to OctoVersion.
-    /// If this parameter is provided, it will override any value passed in the FullSemVer property.
+    ///     Name of the parameter containing the FullSemVer to be passed to OctoVersion.
+    ///     If this parameter is provided, it will override any value passed in the FullSemVer property.
     /// </summary>
-    [CanBeNull] public string FullSemVerParameter { get; set; }
+    [CanBeNull]
+    public string FullSemVerParameter { get; set; }
 
     /// <summary>
-    /// Major version number to pass to OctoVersion..
+    ///     Major version number to pass to OctoVersion..
     /// </summary>
     public int Major
     {
@@ -91,13 +110,14 @@ public class OctoVersionThatWorksWithBuildComponentsAttribute : ValueInjectionAt
     }
 
     /// <summary>
-    /// Name of the parameter containing the Major version number to be passed to OctoVersion.
-    /// If this parameter is provided, it will override any value passed in the Major property.
+    ///     Name of the parameter containing the Major version number to be passed to OctoVersion.
+    ///     If this parameter is provided, it will override any value passed in the Major property.
     /// </summary>
-    [CanBeNull] public string MajorParameter { get; set; }
+    [CanBeNull]
+    public string MajorParameter { get; set; }
 
     /// <summary>
-    /// Minor version number to pass to OctoVersion.
+    ///     Minor version number to pass to OctoVersion.
     /// </summary>
     public int Minor
     {
@@ -106,13 +126,14 @@ public class OctoVersionThatWorksWithBuildComponentsAttribute : ValueInjectionAt
     }
 
     /// <summary>
-    /// Name of the parameter containing the Minor version number to be passed to OctoVersion.
-    /// If this parameter is provided, it will override any value passed in the Minor property.
+    ///     Name of the parameter containing the Minor version number to be passed to OctoVersion.
+    ///     If this parameter is provided, it will override any value passed in the Minor property.
     /// </summary>
-    [CanBeNull] public string MinorParameter { get; set; }
+    [CanBeNull]
+    public string MinorParameter { get; set; }
 
     /// <summary>
-    /// Patch version number to pass to OctoVersion.
+    ///     Patch version number to pass to OctoVersion.
     /// </summary>
     public int Patch
     {
@@ -121,10 +142,12 @@ public class OctoVersionThatWorksWithBuildComponentsAttribute : ValueInjectionAt
     }
 
     /// <summary>
-    /// Name of the parameter containing the Patch version number to be passed to OctoVersion.
-    /// If this parameter is provided, it will override any value passed in the Patch property
+    ///     Name of the parameter containing the Patch version number to be passed to OctoVersion.
+    ///     If this parameter is provided, it will override any value passed in the Patch property
     /// </summary>
-    [CanBeNull] public string PatchParameter { get; set; }
+    [CanBeNull]
+    public string PatchParameter { get; set; }
+
     public override object GetValue(MemberInfo member, object instance)
     {
         var autoDetectBranch = GetMemberValueOrNull<bool?>(AutoDetectBranchParameter, instance) ?? _autoDetectBranch;
@@ -144,8 +167,8 @@ public class OctoVersionThatWorksWithBuildComponentsAttribute : ValueInjectionAt
         var version = OctoVersionTasks.OctoVersionGetVersion(_ => _
                 .SetFramework(Framework)
                 .SetOutputJsonFile(outputFile)
-                    .When(UpdateBuildNumber, _ => _
-                        .EnableDetectEnvironment())
+                .When(UpdateBuildNumber, _ => _
+                    .EnableDetectEnvironment())
                 .When(!UpdateBuildNumber, _ => _
                     .SetOutputFormats(OctoVersionOutputFormatter.Json))
                 .SetCurrentBranch(branch)
@@ -173,7 +196,8 @@ public class OctoVersionThatWorksWithBuildComponentsAttribute : ValueInjectionAt
         var member = type!.GetMember(memberName, ReflectionUtility.All)
             .SingleOrDefaultOrError($"Found multiple members with the name '{memberName}' in '{type.Name}'")
             .NotNull($"No member '{memberName}' found in '{type.Name}'");
-        Assert.True(typeof(T).IsAssignableFrom(member.GetMemberType()), $"Member '{type.Name}.{member.Name}' must be of type '{typeof(T).Name}'");
+        Assert.True(typeof(T).IsAssignableFrom(member.GetMemberType()),
+            $"Member '{type.Name}.{member.Name}' must be of type '{typeof(T).Name}'");
         return member.GetValue<T>(instance);
     }
 
