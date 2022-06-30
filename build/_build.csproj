@@ -14,12 +14,18 @@
 
   <ItemGroup>
     <PackageDownload Include="JetBrains.ReSharper.GlobalTools" Version="[2021.2.0]" />
-    <PackageDownload Include="OctoVersion.Tool" Version="[0.2.1058]" />
-    <PackageReference Include="Nuke.Common" Version="6.0.1" />
+    <PackageDownload Include="OctoVersion.Tool" Version="[0.3.43]" />
+    <PackageReference Include="Nuke.Common" Version="6.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\source\NukeBuildComponents\NukeBuildComponents.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\.config\dotnet-tools.json">
+      <Link>config\dotnet-tools.json</Link>
+    </Content>
   </ItemGroup>
 
 </Project>
