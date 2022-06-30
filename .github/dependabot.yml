@@ -2,6 +2,7 @@ version: 2
 
 updates:
   - package-ecosystem: "nuget"
-    directory: "/source/"
+    directory: "/source/NukeBuildComponents"
     schedule:
       interval: "daily"
+    open-pull-requests-limit: 1
