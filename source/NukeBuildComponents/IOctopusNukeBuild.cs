@@ -1,13 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Reflection;
 using Nuke.Common;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tooling;
 using Nuke.Common.Tools.OctoVersion;
-using Nuke.Common.Utilities;
 
 namespace Octopus.NukeBuildComponents
 {
