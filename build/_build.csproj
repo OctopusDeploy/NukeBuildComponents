@@ -15,7 +15,6 @@
   <ItemGroup>
     <PackageDownload Include="JetBrains.ReSharper.GlobalTools" Version="[2021.2.0]" />
     <PackageDownload Include="OctoVersion.Tool" Version="[0.3.43]" />
-    <PackageReference Include="Nuke.Common" Version="6.1.2" />
   </ItemGroup>
 
   <ItemGroup>

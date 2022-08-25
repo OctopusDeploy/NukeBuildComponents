@@ -28,8 +28,8 @@ namespace Octopus.NukeBuildComponents
         bool AutoDetectBranch => IsLocalBuild;
 
         [Required]
-        [OctoVersion(AutoDetectBranchParameter = nameof(AutoDetectBranch),
-            BranchParameter = nameof(BranchName),
+        [OctoVersion(AutoDetectBranchMember = nameof(AutoDetectBranch),
+            BranchMember = nameof(BranchName),
             UpdateBuildNumber = true,
             Framework = "net6.0")]
         OctoVersionInfo OctoVersionInfo => TryGetValue(() => OctoVersionInfo);
