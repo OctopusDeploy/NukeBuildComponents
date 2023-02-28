@@ -23,9 +23,7 @@ namespace Octopus.NukeBuildComponents
                     var jobOutputFile = (AbsolutePath)Environment.GetEnvironmentVariable("GITHUB_OUTPUT");
                     
                     File.AppendAllText(jobOutputFile, $"semver={OctoVersionInfo.FullSemVer}");
-                    // Console.Out.WriteLine($"::set-output name=semver::{OctoVersionInfo.FullSemVer}");
                     File.AppendAllText(jobOutputFile, $"prerelease_tag={OctoVersionInfo.PreReleaseTagWithDash}");
-                    // Console.Out.WriteLine($"::set-output name=prerelease_tag::{OctoVersionInfo.PreReleaseTagWithDash}");
                 }
                 DotNetPack(_ => _
                     .SetProject(Solution)
