@@ -23,8 +23,6 @@ namespace Octopus.NukeBuildComponents
                     var jobOutputFile = (AbsolutePath)Environment.GetEnvironmentVariable("GITHUB_OUTPUT");
                     File.AppendAllText(jobOutputFile, $"packages_to_push={string.Join(',', artifactPaths)}");
                 }
-                
-                
             });
     }
 }

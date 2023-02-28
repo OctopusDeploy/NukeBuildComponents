@@ -11,7 +11,7 @@ namespace Octopus.NukeBuildComponents
     public interface IPackExtension : IOctopusNukeBuild
     {
         public string NuspecFilePath { get; }
-       
+
 
         Target Pack => _ => _
             .TryDependsOn<ITest>(x => x.Test)
